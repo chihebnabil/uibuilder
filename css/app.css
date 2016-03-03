@@ -1,0 +1,14 @@
+#drag{
+    min-height: 300px;
+}
+#drop{
+  min-height: 900px;
+
+}
+#drop .row ,#drop .col-md-4{
+  border: 1px solid grey;
+  min-height:  200px
+}
+body{
+  padding-top: 60px;
+}
