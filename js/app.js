@@ -2,6 +2,15 @@ var drop = document.querySelector('#drop');
 var dragElements = document.querySelectorAll('.drag');
 var elementDragged = null;
 
+var srcbtn = document.querySelector('#source');
+
+srcbtn.addEventListener('click',function (e) {
+
+  var data = drop.innerHTML;
+  console.log(data);
+  //document.querySelector('#modal-body').innerHTML = data;
+})
+
 for (var i = 0; i < dragElements.length; i++) {
 
   // Event Listener for when the drag interaction starts.

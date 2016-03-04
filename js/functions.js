@@ -16,7 +16,8 @@ function DropNode(node) {
            break;
            case "image":
           var node = document.createElement("img");
-              node.src  ="images/bg.png"
+              node.src  ="images/11665421_819654108161359_3226985830879850577_n.jpg"
+              node.className = "img-responsive"
            break;
            case "link":
            var node = document.createElement("a");
@@ -28,6 +29,13 @@ function DropNode(node) {
                node.className  =""
 
            break;
+           case "label":
+           var node = document.createElement("label");
+               node.className  =""
+               node.textContent = "label"
+
+           break;
+
            case "input":
            var elm = document.createElement("div");
                      elm.className  ="form-control"
