@@ -1,12 +1,16 @@
 #drag{
     min-height: 300px;
+
+}
+#drag li{
+  cursor: pointer;
 }
 #drop{
   min-height: 900px;
 
 }
-#drop .row ,#drop .col-md-4{
-  border: 1px solid grey;
+#drop .row ,#drop .col-md-4 ,#drop .col-md-6 ,#drop .col-md-3 ,form{
+  border: 1px dashed grey;
   min-height:  200px
 }
 body{
