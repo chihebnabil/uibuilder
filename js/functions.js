@@ -1,12 +1,14 @@
-function DropNode(node) {
+function CreateNodeOnDrop(node) {
 
 
      switch (node) {
        case "button":
-       var node = document.createElement("button");
+         var prpt = prompt("Please enter a button text", "");
+         if (prpt != null) {
+         var node = document.createElement("button");
                   node.className =  'btn btn-primary';
-                  node.textContent  ="Button"
-
+                  node.textContent  =prpt
+         }
          break;
          case "textarea":
          var node = document.createElement("textarea");
@@ -20,9 +22,13 @@ function DropNode(node) {
               node.className = "img-responsive"
            break;
            case "link":
+           var prpt = prompt("Please enter a Link", "");
+           var prpt2 = prompt("Please enter a url", "");
+           if (prpt != null) {
            var node = document.createElement("a");
-               node.href  ="#"
-               node.textContent  ="Link"
+               node.textContent  =prpt
+               node.href  = prpt2
+           }
            break;
            case "form":
            var node = document.createElement("form");
@@ -30,10 +36,12 @@ function DropNode(node) {
 
            break;
            case "label":
+           var prpt = prompt("Please enter a label", "");
+           if (prpt != null) {
            var node = document.createElement("label");
                node.className  =""
-               node.textContent = "label"
-
+               node.textContent = prpt
+            }
            break;
 
            case "input":
@@ -49,24 +57,15 @@ function DropNode(node) {
                node.className  ="row"
 
            break;
-           case "colx12":
+           case "countainer":
            var node = document.createElement("div");
-               node.className  ="col-md-12"
+               node.className  ="countainer"
 
            break;
-           case "colx4":
+           case "col":
            var node = document.createElement("div");
-               node.className  ="col-md-4"
-
-           break;
-           case "colx3":
-           var node = document.createElement("div");
-               node.className  ="col-md-3"
-
-           break;
-           case "colx6":
-           var node = document.createElement("div");
-               node.className  ="col-md-6"
+           var n = prompt("Please enter a col size 1,2...12", "");
+               node.className  ="col-md-"+n;
 
            break;
            case "jumbotron":
@@ -74,29 +73,29 @@ function DropNode(node) {
                node.className  ="jumbotron"
 
            break;
-           case "H1":
-           var node = document.createElement("h1");
-               node.textContent  ="Title 1"
+           case "H":
+           var prpt = prompt("Please enter a H text", "");
+           var n = prompt("Please enter a H number 1,2...", "");
+           if (prpt != null) {
+           var node = document.createElement("h"+n);
+               node.textContent  =prpt
+           }
            break;
-           case "H2":
-           var node = document.createElement("h2");
-               node.textContent  ="Title 2"
-           break;
-           case "H3":
-           var node = document.createElement("h3");
-               node.textContent  ="Title 3"
-           break;
-           case "H4":
-           var node = document.createElement("h4");
-               node.textContent  ="Title 4"
-           break;
-           case "H5":
-           var node = document.createElement("h5");
-               node.textContent  ="Title 5"
-           break;
+
            case "paragraph":
+           var prpt = prompt("Please enter a paragraph", "");
+           if (prpt != null) {
            var node = document.createElement("P");
-               node.textContent  ="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore e"
+               node.textContent  =prpt
+               }
+           break;
+           case "alert":
+           var prpt = prompt("Please enter a alert message", "");
+           if (prpt != null) {
+           var node = document.createElement("span");
+               node.className  ="alert alert-danger"
+               node.textContent  =prpt
+               }
            break;
 
 

@@ -21,7 +21,8 @@
           <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
               <li class=""><a data-toggle="modal" data-target="#myModal" id="source" href="#">Source</a></li>
-
+              <li class=""><a  id="save" href="#">Save</a></li>
+              <li class=""><a  id="reset" href="#">Reset</a></li>
 
           </div><!--/.nav-collapse -->
         </div>
@@ -49,10 +50,8 @@
          <ul >
 
            <li class="drag" draggable="true">row</li>
-           <li class="drag" draggable="true">colx12</li>
-           <li class="drag" draggable="true">colx6</li>
-           <li class="drag" draggable="true">colx4</li>
-           <li class="drag" draggable="true">colx3</li>
+           <li class="drag" draggable="true">countainer</li>
+           <li class="drag" draggable="true">col</li>
            <li class="drag" draggable="true">jumbotron</li>
            <li class="drag" draggable="true">button</li>
            <li class="drag" draggable="true">image</li>
@@ -62,13 +61,10 @@
            <li class="drag" draggable="true">form</li>
            <li class="drag" draggable="true">label</li>
            <li class="drag" draggable="true">input</li>
-           <li class="drag" >H</li>
-            <li class="drag" draggable="true">H1</li>
-            <li class="drag" draggable="true">H2</li>
-            <li class="drag" draggable="true">H3</li>
-            <li class="drag" draggable="true">H4</li>
-            <li class="drag" draggable="true">H5</li>
+           <li class="drag" draggable="true">H</li>
+
             <li class="drag" draggable="true">paragraph</li>
+            <li class="drag" draggable="true">alert</li>
          </ul>
          <h4>Components</h4>
          <ul>
@@ -94,13 +90,10 @@
            <h4 class="modal-title" id="myModalLabel">Source Code</h4>
          </div>
          <div class="modal-body">
-           <code  id="modal-body" >
+           <div  id="modal-body" >
 
-              <pre class="prettyprint" id="quine" style="border:4px solid #88c">
-                <p>
-
-                </p>
-              </pre>
+              <textarea id="code" class="form-control" name="name" rows="20" cols="40">
+              </textarea>
 
            </code>
 
