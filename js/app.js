@@ -3,14 +3,11 @@ var dragElements = document.querySelectorAll('.drag');
 var elementDragged = null;
 
 if (localStorage.getItem('code')) {
-drop.innerHTML = localStorage.getItem('code');
+  drop.innerHTML = localStorage.getItem('code');
 }
 document.querySelector('#reset').addEventListener('click',function (e) {
 
   drop.innerHTML ="";
-
-
-
 })
 
 document.querySelector('#source').addEventListener('click',function (e) {
@@ -18,16 +15,11 @@ document.querySelector('#source').addEventListener('click',function (e) {
   var data = drop.innerHTML;
   document.querySelector('#code').value = data
   console.log(data);
-
-
 })
 document.querySelector('#save').addEventListener('click',function (e) {
 
   var data = drop.innerHTML;
-
   localStorage.setItem('code', data);
-
-
 })
 
 
