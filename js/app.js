@@ -51,6 +51,9 @@ drop.addEventListener('dragover', function(e) {
   return false;
 });
 
+
+
+
 drop.addEventListener('dragenter', function(e) {
 
 
@@ -68,3 +71,18 @@ drop.addEventListener('drop', function(e) {
   e.target.appendChild(node);
   return false;
 });
+
+
+document.querySelector('#drop').onclick = function(e) {
+         if(document.querySelector('.selected')){
+           document.querySelector('.selected').className =""
+         }
+
+         e.srcElement.textContent= document.querySelector('#textContent').value
+         e.srcElement.className ='selected'
+};
+document.querySelector('#remove').onclick = function(e) {
+
+     document.querySelector('.selected').remove()
+
+};

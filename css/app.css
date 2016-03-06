@@ -1,5 +1,6 @@
 #drag{
     min-height: 300px;
+    
 
 }
 #drag ul{
@@ -18,6 +19,9 @@
 #drop .row ,#drop .col-md-4 ,#drop .col-md-6 ,#drop .col-md-3 ,#drop .col-md-9 ,#drop .countainer,form{
   border: 1px dashed grey;
   min-height:  200px
+}
+.selected {
+  border: 1px dashed blue;
 }
 body{
 
