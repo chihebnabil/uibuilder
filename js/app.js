@@ -74,15 +74,34 @@ drop.addEventListener('drop', function(e) {
 
 
 document.querySelector('#drop').onclick = function(e) {
+
+
+
          if(document.querySelector('.selected')){
-           document.querySelector('.selected').className =""
+
+            document.querySelector('.selected').removeClass('selected')
+
+            
+         }else {
+           e.srcElement.className = e.srcElement.className +' selected'
          }
 
-         e.srcElement.textContent= document.querySelector('#textContent').value
-         e.srcElement.className ='selected'
+
+      if (e.srcElement.nodeName == "H1" ||  e.srcElement.nodeName == "P" || e.srcElement.nodeName == "H2" || e.srcElement.nodeName == "A" || e.srcElement.nodeName == "LI") {
+           e.srcElement.textContent= document.querySelector('#textContent').value
+      }
+
+
+
+         document.querySelector('#SelectedNode').value = e.srcElement.nodeName
+         document.querySelector('#SelectedNodeClass').value = e.srcElement.className
+
 };
+
+
+
 document.querySelector('#remove').onclick = function(e) {
 
-     document.querySelector('.selected').remove()
+ document.querySelector('.selected').remove()
 
 };
