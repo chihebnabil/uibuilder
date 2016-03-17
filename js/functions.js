@@ -1,7 +1,6 @@
 function CreateNodeOnDrop(node) {
 
 
-
      var textContent =  document.querySelector('#textContent').value
      var className =  document.querySelector('#className').value
 
@@ -14,7 +13,7 @@ function CreateNodeOnDrop(node) {
          if (textContent != null) {
          var node = document.createElement("button");
                   node.className =  'btn btn-primary';
-                  node.textContent  = textContent
+                  node.textContent  = textContent;
          }
          break;
          case "textarea":
@@ -39,7 +38,8 @@ function CreateNodeOnDrop(node) {
            break;
            case "form":
            var node = document.createElement("form");
-               node.className  =""
+              node.className  ="form"
+              
 
            break;
            case "label":
@@ -47,7 +47,7 @@ function CreateNodeOnDrop(node) {
            if (textContent != null) {
            var node = document.createElement("label");
                node.className  =""
-               node.textContent = prpt
+               node.textContent = textContent
             }
            break;
 
@@ -90,7 +90,9 @@ function CreateNodeOnDrop(node) {
            var n = prompt("Please enter a H number 1,2...", "");
            if (textContent) {
            var node = document.createElement("h"+n);
+
                node.textContent  =textContent
+               node.setAttribute("ng-model", "textContent");
            }
            break;
 
@@ -128,4 +130,60 @@ function CreateNodeOnDrop(node) {
 
 return node;
 
+}
+
+var textFile = null;
+MakeFile = function (text) {
+   var data = new Blob([text], {type: 'text/text'});
+
+   // If we are replacing a previously generated file we need to
+   // manually revoke the object URL to avoid memory leaks.
+   if (textFile !== null) {
+     window.URL.revokeObjectURL(textFile);
+   }
+
+   textFile = window.URL.createObjectURL(data);
+   document.querySelector('#wp').href = textFile;
+
+   return textFile;
+ };
+ PreviewFile = function (text) {
+    var data = new Blob([text], {type: 'text/html'});
+
+    // If we are replacing a previously generated file we need to
+    // manually revoke the object URL to avoid memory leaks.
+    if (textFile !== null) {
+      window.URL.revokeObjectURL(textFile);
+    }
+
+    textFile = window.URL.createObjectURL(data);
+    document.querySelector('#preview').href = textFile;
+
+    return textFile;
+  };
+
+
+  function touchHandler(event) {
+    var touch = event.changedTouches[0];
+
+    var simulatedEvent = document.createEvent("MouseEvent");
+        simulatedEvent.initMouseEvent({
+        touchstart: "mousedown",
+        touchmove: "mousemove",
+        touchend: "mouseup"
+    }[event.type], true, true, window, 1,
+        touch.screenX, touch.screenY,
+        touch.clientX, touch.clientY, false,
+        false, false, false, 0, null);
+
+    touch.target.dispatchEvent(simulatedEvent);
+    event.preventDefault();
+}
+
+function init() {
+     console.log("=====init======");
+    document.addEventListener("touchstart", touchHandler, true);
+    document.addEventListener("touchmove", touchHandler, true);
+    document.addEventListener("touchend", touchHandler, true);
+    document.addEventListener("touchcancel", touchHandler, true);
 }

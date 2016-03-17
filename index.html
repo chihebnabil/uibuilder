@@ -2,11 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap Drag and Drop Theme Builder</title>
+    <title>Bootstrap Drag and Drop Theme Builder  </title>
     <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/libs/xeditable.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/app.css" media="screen" title="no title" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body ng-app="app"ng-controller="MainController" onload="init()">
     <nav class="navbar navbar-nice navbar-static-top">
         <div class="container">
           <div class="navbar-header">
@@ -16,13 +18,15 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Bootstrap UI Builder</a>
+            <a class="navbar-brand" href="#"><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDY1LjA0OCA2NS4wNDciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY1LjA0OCA2NS4wNDc7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8cGF0aCBkPSJNNTguMzc1LDBINi42NzJDMi45OTMsMCwwLDIuOTk0LDAsNi42NzJ2NTEuNzAzYzAsMy42OCwyLjk5Myw2LjY3Miw2LjY3Miw2LjY3Mmg1MS43MDRjMy42ODEsMCw2LjY3Mi0yLjk5Miw2LjY3Mi02LjY3MiAgIFY2LjY3MkM2NS4wNDcsMi45OTQsNjIuMDU3LDAsNTguMzc1LDB6IE02MS43MTEsNTguMzc1YzAsMS44NC0xLjQ5NiwzLjMzNi0zLjMzNiwzLjMzNkg2LjY3MmMtMS44MzksMC0zLjMzNi0xLjQ5Ni0zLjMzNi0zLjMzNiAgIFY2LjY3MmMwLTEuODQsMS40OTctMy4zMzYsMy4zMzYtMy4zMzZoNTEuNzA0YzEuODQsMCwzLjMzNiwxLjQ5NiwzLjMzNiwzLjMzNkw2MS43MTEsNTguMzc1TDYxLjcxMSw1OC4zNzV6IE0zOS4zODMsMjEuOTkgICBsMy41MzgsMy41MzlMMjYuMjEzLDQyLjIzNWwtMy41MzgtMy41MzdMMzkuMzgzLDIxLjk5eiBNMjMuMjY1LDQxLjY0NWwxLjgxLDEuODEyTDE5LjEwOSw0NS44bDIuMzQ0LTUuOTY3TDIzLjI2NSw0MS42NDV6ICAgIE00NC4xNywxNy4yMDJsMy41MzksMy41MzhsLTMuNjA3LDMuNjA4bC0zLjUzOS0zLjUzOEw0NC4xNywxNy4yMDJ6IiBmaWxsPSIjRkZGRkZGIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" /> UI Builder</a>
           </div>
           <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-              <li class=""><a data-toggle="modal" data-target="#myModal" id="source" href="#">Source</a></li>
-              <li class=""><a  id="save" href="#">Save</a></li>
-              <li class=""><a  id="reset" href="#">Reset</a></li>
+              <li class=""><a  id="preview" onclick="PreviewFile(document.querySelector('#drop').innerHTML)" href="#">Preview</a></li>
+              <li class=""><a data-toggle="modal" data-target="#myModal" ng-click="source()" id="source" href="#">Source</a></li>
+              <li class=""><a  id="save" ng-click="save()" href="#">Save</a></li>
+              <li class=""><a  id="reset" ng-click="reset()" href="#">Reset</a></li>
+              <li class=""><a  id="wp" ng-click="MakeFile(document.querySelector('#drop').innerHTML)" href="#">WP Theme</a></li>
 
           </div><!--/.nav-collapse -->
         </div>
@@ -36,47 +40,36 @@
 
 
 
-     <div id="drag"  class="col-md-2">
+     <div id="drag" class="col-md-2" >
+       <div id="sidebar-wrapper">
+                   <ul class="sidebar-nav">
+                       <li class="sidebar-brand">
+                           <a href="#">
+                               Drag Html Elements
+                           </a>
+                       </li>
+                       <li  ng-repeat="el in HtmlElements">
+                           <a class="drag" draggable="true" drag-element href="#">{{el}}</a>
+                       </li>
+                       <li class="sidebar-brand">
+                           <a href="#">
+                               Components
+                           </a>
+                       </li>
+                       <li  ng-repeat="el in Components">
+                           <a class="drag" draggable="true" drag-element href="#">{{el}}</a>
+                       </li>
+
+               </div>
 
 
 
-
-<h4>Drag Html Elements</h4>
-         <ul >
-
-           <li class="drag" draggable="true">row</li>
-           <li class="drag" draggable="true">countainer</li>
-           <li class="drag" draggable="true">col</li>
-           <li class="drag" draggable="true">jumbotron</li>
-           <li class="drag" draggable="true">button</li>
-           <li class="drag" draggable="true">image</li>
-           <li class="drag" draggable="true">link</li>
-           <li class="drag" draggable="true">textarea</li>
-           <li class="drag" draggable="true">button</li>
-           <li class="drag" draggable="true">form</li>
-           <li class="drag" draggable="true">label</li>
-           <li class="drag" draggable="true">input</li>
-           <li class="drag" draggable="true">H</li>
-<li class="drag" draggable="true">hr</li>
-            <li class="drag" draggable="true">paragraph</li>
-            <li class="drag" draggable="true">alert</li>
-         </ul>
-         <h4>Components</h4>
-         <ul>
-           <li class="drag" draggable="true">navbar</li>
-          <li class="drag" draggable="true">slider</li>
-         </ul>
 
 
      </div>
 
      <div  class="col-md-8">
-       <h4>Dop Area</h4>
-       <div id="drop"    class="row">
-
-
-
-
+       <div id="drop"   drop-area class="row">
 
 
 
@@ -85,18 +78,23 @@
      </div>
      <div  class="col-md-2">
         <h4>Properties</h4>
+
        <div class="form-group">
        <label for="className">Class</label>
       <input type="text" name="className" id="className" class="form-control" value="">
     </div>
     <div class="form-group">
+    <label for="className">Src</label>
+   <input type="text"  id="src" class="form-control" value="">
+ </div>
+    <div class="form-group">
       <label for="textContent">Text Content</label>
-      <textarea name="textContent" class="form-control" id="textContent" rows="8" cols="40">Dummy Text
+      <textarea   class="form-control" id="textContent" rows="8" cols="40">Dummy Text
       </textarea>
      </div>
      <div class="form-group">
-
-       <button type="button"   class="btn btn-danger" id="remove">Remove Element</button>
+         <a href="#" id="username">username</a>
+       <button type="button"  ng-click="remove()"  class="btn btn-danger" id="remove">Remove Element</button>
       </div>
       <div class="form-group">
       <label for="SelectedNode">Selected Node</label>
@@ -122,13 +120,16 @@
          <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
            <h4 class="modal-title" id="myModalLabel">Source Code</h4>
+           <p>
+             don't forget to include Bootstrap.css and Bootstrap.js
+           </p>
          </div>
          <div class="modal-body">
            <div  id="modal-body" >
 
               <textarea id="code" class="form-control" name="name" rows="20" cols="40"></textarea>
 
-           </code>
+
 
          </div>
 
@@ -139,10 +140,21 @@
    </div>
 
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<footer id="footer">
+</footer>
 
-<script type="text/javascript" src="scripts/main.js"></script>
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/libs/editable.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-touch.js"></script>
+<script src="js/MainController.js"></script>
+
+
+
+<script type="text/javascript" src="js/functions.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+
 
 
   </body>

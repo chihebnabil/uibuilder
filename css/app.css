@@ -86,7 +86,7 @@
   overflow: none;
 
 }
-#drop .row ,#drop .col-md-4 ,#drop .col-md-6 ,#drop .col-md-3 ,#drop .col-md-9 ,#drop .countainer,form{
+#drop .row ,#drop .col-md-4 ,#drop .col-md-6 ,#drop .col-md-3 ,#drop .col-md-9 ,#drop .countainer,.form{
   border: 1px dashed grey;
   min-height:  200px
 }
@@ -95,4 +95,8 @@
 }
 body{
 
+}
+
+form , .row{
+  padding-bottom: 20px;
 }
