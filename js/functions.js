@@ -1,7 +1,7 @@
 function CreateNodeOnDrop(node) {
 
 
-     var textContent =  document.querySelector('#textContent').value
+     var textContent =  "dummy text"
      var className =  document.querySelector('#className').value
 
      var slider_string ='<div id="myCarousel" class="carousel slide" data-ride="carousel"><ol class="carousel-indicators"><li data-target="#myCarousel" data-slide-to="0" class="active"></li><li data-target="#myCarousel" data-slide-to="1"></li><li data-target="#myCarousel" data-slide-to="2"></li><li data-target="#myCarousel" data-slide-to="3"></li></ol><div class="carousel-inner" role="listbox"><div class="item active"><img src="images/placeholder.png" alt=""></div><div class="item"><img src="images/placeholder.png" alt=""></div><div class="item"><img src="images/placeholder.png" alt=""></div><div class="item"><img src="images/placeholder.png" alt=""></div></div><a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>';
@@ -39,7 +39,7 @@ function CreateNodeOnDrop(node) {
            case "form":
            var node = document.createElement("form");
               node.className  ="form"
-              
+
 
            break;
            case "label":
@@ -163,27 +163,7 @@ MakeFile = function (text) {
   };
 
 
-  function touchHandler(event) {
-    var touch = event.changedTouches[0];
-
-    var simulatedEvent = document.createEvent("MouseEvent");
-        simulatedEvent.initMouseEvent({
-        touchstart: "mousedown",
-        touchmove: "mousemove",
-        touchend: "mouseup"
-    }[event.type], true, true, window, 1,
-        touch.screenX, touch.screenY,
-        touch.clientX, touch.clientY, false,
-        false, false, false, 0, null);
-
-    touch.target.dispatchEvent(simulatedEvent);
-    event.preventDefault();
-}
 
 function init() {
-     console.log("=====init======");
-    document.addEventListener("touchstart", touchHandler, true);
-    document.addEventListener("touchmove", touchHandler, true);
-    document.addEventListener("touchend", touchHandler, true);
-    document.addEventListener("touchcancel", touchHandler, true);
+
 }

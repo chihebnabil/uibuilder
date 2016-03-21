@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngTouch']);
+var app = angular.module('app',['ngTouch']);
 var elementDragged = null;
 var drop = angular.element('#drop');
 
@@ -80,26 +80,17 @@ app.directive('dropArea', function() {
             elem.bind('drop', function(e) {
               if (e.preventDefault) e.preventDefault();
               if (e.stopPropagation) e.stopPropagation();
-                     console.log(elementDragged);
+                     console.log(elementDragged.textContent);
               var node = CreateNodeOnDrop(elementDragged.textContent);
               e.target.appendChild(node);
               return false;
             });
             elem.bind('click', function(e) {
-            
-              if(angular.element('.selected')){
+            elem.attr('contenteditable',"true");
 
-
-              angular.element(".selected").removeClass('selected');
-
-
-              }else {
-
-                e.originalEvent.srcElement.className = e.originalEvent.srcElement.className +' selected'
-              }
 
               if (e.originalEvent.srcElement.nodeName == "H1" || e.originalEvent.srcElement.nodeName == "BUTTON"  || e.originalEvent.srcElement.nodeName == "LABEL" ||  e.originalEvent.srcElement.nodeName == "P" || e.originalEvent.srcElement.nodeName == "H2" || e.originalEvent.srcElement.nodeName == "A" || e.originalEvent.srcElement.nodeName == "LI") {
-                e.originalEvent.srcElement.textContent= document.querySelector('#textContent').value
+                e.originalEvent.srcElement.textContent= "dummy content"
               }
               if (e.originalEvent.srcElement.nodeName == "IMG" ) {
 
@@ -109,6 +100,9 @@ app.directive('dropArea', function() {
               angular.element('#SelectedNode').val(e.originalEvent.srcElement.nodeName)
               angular.element('#SelectedNodeClass').val(e.originalEvent.srcElement.className);
 
+            });
+            elem.bind('blur', function(e) {
+               elem.removeAttr('contenteditable');
             });
        }
    };
